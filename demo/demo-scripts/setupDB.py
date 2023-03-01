@@ -5,15 +5,14 @@ import http
 from urllib.parse import urlparse
 
 # set up database
-os.system("dropdb mi_precincts; createdb mi_precincts")
-os.system("psql mi_precincts -c \"create extension postgis;\"")
+os.system("dropdb demo; createdb demo")
+os.system("psql demo -c \"create extension postgis;\"")
 
 # Setup variables
 CRS = "4326"
 downloads = {
-#   "bg10": "https://www2.census.gov/geo/tiger/TIGER2010/BG/2010/tl_2010_26_bg10.zip",
-  "bg20": "https://www2.census.gov/geo/tiger/TIGER2020/BG/tl_2020_26_bg.zip",
-  "counties20": "https://www2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip"
+  "tracts20": "https://www2.census.gov/geo/tiger/TIGER2020/TRACT/tl_2020_47_tract.zip", # 2020 census tracts for tennessee
+  "districts22": "https://www2.census.gov/geo/tiger/TIGER2022/UNSD/tl_2022_47_unsd.zip" # 2020 unified school districts for tennessee
 }
 
 os.system("mkdir -p shapefiles/downloads")
@@ -31,4 +30,4 @@ for (table, url) in downloads.items():
   # -I creates an index
   shapefiles = [f for f in os.listdir("shapefiles/%s" % table) if os.path.splitext(f)[1] == ".shp"]
   shapefile = shapefiles[0]
-  os.system("shp2pgsql -DI -s %s shapefiles/%s/%s %s | psql dbname=mi_precincts " % (CRS, table, shapefile, table))
+  os.system("shp2pgsql -DI -s %s shapefiles/%s/%s %s | psql dbname=demo " % (CRS, table, shapefile, table))
