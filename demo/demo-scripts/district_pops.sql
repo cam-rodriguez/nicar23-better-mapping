@@ -12,7 +12,7 @@ create view precinct_pop20 as (
   select
     '2020' as year,
     -- id --
-    area.tract as tract,
+    -- area.tract as tract,
     area.distname as distname,
     area.lea as lea,
     area.districts as district,
@@ -36,7 +36,8 @@ create view precinct_pop20 as (
 
   where pop.geoid_long = area.geoid_long 
 
-  group by distname, lea, district, tract
+  group by distname, lea, district
+  --  tract
 );
 
 \copy (select * from precinct_pop20 as pops) to 'demo/output/precinct_pops-demo.csv' header csv;
