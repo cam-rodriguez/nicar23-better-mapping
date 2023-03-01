@@ -13,7 +13,7 @@ CRS = "4326"
 downloads = {
 #   "bg10": "https://www2.census.gov/geo/tiger/TIGER2010/BG/2010/tl_2010_26_bg10.zip",
   "bg20": "https://www2.census.gov/geo/tiger/TIGER2020/BG/tl_2020_26_bg.zip",
-  "counties20": "https://www2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip"
+  # "counties20": "https://www2.census.gov/geo/tiger/TIGER2022/COUNTY/tl_2022_us_county.zip"
 }
 
 os.system("mkdir -p shapefiles/downloads")
