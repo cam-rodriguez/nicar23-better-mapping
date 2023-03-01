@@ -28,3 +28,8 @@
     * TK floodplain data/etc
 * demo-scripts
     * TK
+
+## sandbox
+* data
+    * sample data (TRI, beer permits, etc)
+    

@@ -26,4 +26,6 @@ create table areas22 as (
 alter table areas22 add column geoid_long TEXT;
 update areas22 set geoid_long = concat('1500000US', blockgroup)
 
+\copy (select * from areas22 as areas) to 'casestudy/output/overlap.csv' header csv;
+
 

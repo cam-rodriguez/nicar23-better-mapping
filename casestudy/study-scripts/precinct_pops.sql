@@ -32,10 +32,9 @@ create view precinct_pop20 as (
   from areas22 as area, pop20 as pop
 
   where pop.geoid_long = area.geoid_long 
-    and hisp.geoid_long = area.geoid_long
 
   group by precinct, area.mcd, area.county
 );
 
-\copy (select * from precinct_pop20 as pops) to 'output/precinct_pops.csv' header csv;
+\copy (select * from precinct_pop20 as pops) to 'casestudy/output/precinct_pops.csv' header csv;
 

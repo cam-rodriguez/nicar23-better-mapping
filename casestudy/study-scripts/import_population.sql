@@ -29,8 +29,7 @@ create table pop20 (
     aian NUMERIC,
     two_more NUMERIC,
     not_hispanic NUMERIC,
-    hispanic NUMERIC,
-    total NUMERIC
+    hispanic NUMERIC
 );
 
 -- this pulls the data from the file that we designate!

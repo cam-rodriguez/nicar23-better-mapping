@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # download/unpack shapefiles and upload into PostGIS
-python3 setupDB.py
+python3 casestudy/study-scripts/setupDB.py
 
 # load in michigan precinct file
 ogr2ogr -f "PostgreSQL" PG:"dbname=mi_precincts" "casestudy/study-files/precincts22.geojson" -nln precincts22 -overwrite
@@ -15,7 +15,7 @@ for import in casestudy/study-scripts/import*.sql; do
 done
 
 # generate district population tables in ./output
-mkdir -p output #creating output
+mkdir -p casestudy/output #creating output
 for tables in casestudy/study-scripts/*_pops.sql; do
   psql mi_precincts -f $tables;
 done
