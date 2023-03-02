@@ -6,7 +6,7 @@ from urllib.parse import urlparse
 
 # set up database
 # os.system("dropdb mi_precincts; createdb mi_precincts")
-os.system("psql mi_precincts -c \"create extension postgis;\"") #tk
+os.system("psql mi_precincts -c \"create extension postgis;\"")
 
 # Setup variables
 CRS = "4326"
@@ -31,4 +31,4 @@ for (table, url) in downloads.items():
   # -I creates an index
   shapefiles = [f for f in os.listdir("casestudy/study-files/shapefiles/%s" % table) if os.path.splitext(f)[1] == ".shp"]
   shapefile = shapefiles[0]
-  os.system("shp2pgsql -DI -s %s casestudy/study-files/shapefiles/%s/%s %s | psql dbname=mi_precincts " % (CRS, table, shapefile, table))
+  os.system("shp2pgsql -DI -s %s casestudy/study-files/shapefiles/%s/%s %s | psql dbname=mi_precincts" % (CRS, table, shapefile, table))
