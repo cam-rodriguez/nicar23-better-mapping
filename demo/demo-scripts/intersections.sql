@@ -18,4 +18,4 @@ create table areas22 as (
 alter table areas22 add column geoid_long TEXT;
 update areas22 set geoid_long = concat('1400000US', tract);
 
-\copy (select * from areas22 as areas) to 'demo/output/overlaps.csv' header csv;
+-- \copy (select * from areas22 as areas) to 'demo/output/overlaps.csv' header csv;
