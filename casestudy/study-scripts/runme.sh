@@ -4,7 +4,7 @@
 python3 casestudy/study-scripts/setupDB.py
 
 # load in michigan precinct file
-ogr2ogr -f "PostgreSQL" PG:"dbname=mi_precincts" "casestudy/study-files/precincts22.geojson" -nln precincts22 -overwrite
+ogr2ogr -f "PostgreSQL" PG:"dbname=mi_precincts password=nicar" "casestudy/study-files/precincts22.geojson" -nln precincts22 -overwrite
 
 # create blockgroup->district intersection tables
 psql mi_precincts -f casestudy/study-scripts/intersections.sql

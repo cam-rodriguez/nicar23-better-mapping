@@ -5,8 +5,8 @@ import http
 from urllib.parse import urlparse
 
 # set up database
-os.system("dropdb mi_precincts; createdb mi_precincts")
-os.system("psql mi_precincts -c \"create extension postgis;\"")
+# os.system("dropdb mi_precincts; createdb mi_precincts")
+os.system("psql mi_precincts -c \"create extension postgis;\"") #tk
 
 # Setup variables
 CRS = "4326"

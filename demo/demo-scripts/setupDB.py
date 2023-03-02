@@ -5,7 +5,7 @@ import http
 from urllib.parse import urlparse
 
 # set up database
-os.system("dropdb demo; createdb demo")
+# os.system("dropdb demo; createdb demo")
 os.system("psql demo -c \"create extension postgis;\"")
 
 # Setup variables
@@ -30,4 +30,4 @@ for (table, url) in downloads.items():
   # -I creates an index
   shapefiles = [f for f in os.listdir("demo/shapefiles/%s" % table) if os.path.splitext(f)[1] == ".shp"]
   shapefile = shapefiles[0]
-  os.system("shp2pgsql -DI -s %s demo/shapefiles/%s/%s %s | psql dbname=demo " % (CRS, table, shapefile, table))
+  os.system("shp2pgsql -DI -s %s demo/shapefiles/%s/%s %s | psql dbname=demo password=nicar" % (CRS, table, shapefile, table))

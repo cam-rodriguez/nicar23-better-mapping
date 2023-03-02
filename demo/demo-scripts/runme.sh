@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# set password
+
+
 # download/unpack shapefiles and upload into PostGIS
 python3 demo/demo-scripts/setupDB.py
 
